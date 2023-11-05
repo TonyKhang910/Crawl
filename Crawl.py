@@ -1,4 +1,4 @@
-#Câu 1
+#1.
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -49,7 +49,7 @@ df.to_excel('test.xlsx', index=False)
 
 
 
-#Câu 2
+#2.
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -97,7 +97,7 @@ df.to_excel('abbreviations.xlsx', index=False)
 
 
 
-#Câu3, 4
+#3. 4.
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -218,21 +218,21 @@ for i in range(start_page, max_pages + 1):
 # Save the dataframe to an Excel file
 df.to_excel('test.xlsx', index=False)
 
-#Câu 5
+#5.
 import pandas as pd
 
-# Đọc dữ liệu từ 3 bộ dữ liệu vào các DataFrame riêng biệt
-df1 = pd.read_csv('output.xlsx')
-df2 = pd.read_csv('abbreviations.xlsx')
-df3 = pd.read_csv('test.xlsx')
+# Import Data
+df1 = pd.read_excel('output.xlsx')
+df2 = pd.read_excel('abbreviations.xlsx')
+df3 = pd.read_excel('test.xlsx')
 
-# Kết hợp các DataFrame theo các trường chung (ở đây là 'Tên tạp chí')
-merged_df = pd.merge(df3, df1, on='Tên tạp chí', how='inner')
-merged_df = pd.merge(merged_df, df2, on='Tên tạp chí', how='inner')
+# Combine data with the similar columns is 'Tên Tạp Chí'
+merged_df = pd.merge(df3, df1, on='Tên Tạp chí', how='inner')
+merged_df = pd.merge(merged_df, df2, on='Tên Tạp chí', how='inner')
 
-# Sắp xếp lại các cột theo thứ tự mong muốn
-merged_df = merged_df[['STT', 'Tên tạp chí', 'issn', 'eissn', 'Tên viết tắt', 'Impact Factor']]
+# Arrange data 
+merged_df = merged_df[['STT', 'Tên Tạp Chí', 'ISSN', 'eISSN', 'Tên Viết Tắt', 'Impact Factor']]
 
-# Lưu bộ dữ liệu kết hợp vào một tệp mới
+# Save the data
 merged_df.to_csv('Complete.xlsx', index=False)
 
